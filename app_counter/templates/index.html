@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <h1>Counter {{ request.session.counter }} times</h1>
+
+    <form action="/destroy_session" method="post">
+        {% csrf_token %}
+        <button type="submit">Reset</button>
+    </form>
+    <form action="/double_counter" style="margin-top: 10px;">    
+        {% csrf_token %}
+        <button type="submit">+2</button>
+    </form>
+
+</body>
+</html>
