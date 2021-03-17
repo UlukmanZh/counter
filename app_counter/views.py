@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
 def index (request):
-    if 'counter' in request.session:
+    
+    if 'counter' not in request.session:
         print('key exists!')
-        request.session ['counter'] += 1 
-    else:
-        print("key 'counter' does NOT exist")
-        request.session ['counter'] = 1
+        request.session ['counter'] = 0 
+    request.session ['counter'] += 1
     
     return render(request, 'index.html')
 
